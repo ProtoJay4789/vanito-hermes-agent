@@ -1,114 +1,114 @@
-# Vanito's Hermes agent — install package
+# Vanito's Hermes agent
 
-**Built 2026-11-01.** Everything an agent needs to be *his* agent, in one folder: the soul, the
-skills, and the memories.
+**A complete handoff package.** Everything an agent needs to be *his* agent: the soul, the skills, and
+the memories — built from the GenTech fleet's real experience, so he starts where we are instead of
+where we were a year ago.
 
-```
-Vanito-Hermes-Agent/
-  SOUL.md              who the agent is, how it talks, what it refuses
-  skills/              13 skills — his 7, plus 6 that fit his work
-  memories/
-    MEMORY.md          his world: characters, catalog, gaming, travel, media lanes
-    USER.md            who he is and how he wants to be worked with
-  manifest.json        provenance + hashes
-  README.md            this file
-```
+> **Private repo.** Read it, copy what you need, then set up your own brain. Nothing here connects to
+> anything; it is text and instructions.
 
 ---
 
-## Install — three ways, pick one
+## Read in this order
 
-### A · A fresh Hermes profile on a machine you control
+| # | file | why |
+|---|---|---|
+| 1 | `README.md` | this — what's here and how to install it |
+| 2 | `SOUL.md` | who your agent is, how it talks, what it refuses |
+| 3 | `memories/USER.md` | who you are, and how you want to be worked with |
+| 4 | `memories/MEMORY.md` | your world: characters, catalog, gaming, travel, media lanes |
+| 5 | `skills/` | everything your agent knows how to do |
+
+## Install — fastest path
 
 ```bash
-# 1. create the profile
+git clone https://github.com/ProtoJay4789/vanito-hermes-agent.git
+cd vanito-hermes-agent
+
+mkdir -p ~/.hermes/memories
+cp SOUL.md            ~/.hermes/SOUL.md
+cp memories/USER.md   ~/.hermes/memories/USER.md
+cp memories/MEMORY.md ~/.hermes/memories/MEMORY.md
+cp -r skills/*        ~/.hermes/skills/
+
+hermes
+```
+
+Or, on a dedicated profile:
+
+```bash
 hermes profile create vanito
-
-# 2. copy the soul and the memories in
 cp SOUL.md            ~/.hermes/profiles/vanito/SOUL.md
-cp memories/MEMORY.md ~/.hermes/profiles/vanito/MEMORY.md
-cp memories/USER.md   ~/.hermes/profiles/vanito/USER.md
-
-# 3. drop the skills in
-cp -r skills/* ~/.hermes/profiles/vanito/skills/
-
-# 4. run it
+cp memories/*.md      ~/.hermes/profiles/vanito/memories/
+cp -r skills/*        ~/.hermes/profiles/vanito/skills/
 hermes --profile vanito
 ```
 
-### B · Add to an existing Hermes install
-
-```bash
-cp -r skills/*     ~/.hermes/skills/
-cp SOUL.md         ~/.hermes/SOUL.md          # ⚠️ overwrites — back up first
-cp memories/*.md   ~/.hermes/memories/        # ⚠️ same
-```
-
-**⚠️ Check before overwriting.** If that install already has a soul or memories, merge instead of
-replacing — the only files here that are *his* are the memories, and a replaced soul loses a working
-agent's behaviour.
-
-### C · Read it into any agent by hand
-
-Every file is plain markdown. **`SOUL.md` → the system prompt. `memories/*` → the memory store.
-`skills/*/SKILL.md` → the skill library.** No tooling required.
+**⚠️ Back up first if you already have a `SOUL.md` or memories** — those are the files that make an
+agent feel like *yours*, and overwriting one loses a working personality.
 
 ---
 
-## What's in the skills folder
+## The skills, by what they're for
 
-**His seven** — carried from the vault, unchanged:
+### Your creative work
 
 | skill | what it does |
 |---|---|
-| `lyrics-writing` | song structure, chorus craft, genre conventions, his evolving preferences |
+| `lyrics-writing` | song structure, chorus craft, genre conventions |
 | `content/donna-ai-lyrics` | formats lyrics for Donna AI / Suno with the right bracket tags |
-| `film-production-workflow` | end-to-end Seedance 2.0 music video — keyframes, clips, concat, review |
-| `creative-production/character-driven-music-video` | consistent AI-generated characters across a video |
+| `creative/songwriting-and-ai-music` | songwriting craft + Suno prompting |
+| `film-production-workflow` | end-to-end Seedance 2.0 music video |
+| `film-production/seedance-video-production` | the current Seedance production procedure |
+| `creative-production/character-driven-music-video` | consistent AI characters across a video |
+| `creative/image-generation-workflow` | reliable image generation and editing |
+| `creative/brand-assets` | logos, banners, thumbnails |
+| `creative/meme-generation` | real meme images from templates |
+| `media/voice-content-production` | voice audio across personas |
+
+### Your world
+
+| skill | what it does |
+|---|---|
 | `gaming/heroscape-rules` | Heroscape rules and army building |
-| `gentech-hub/hub-audit` | keeps his dashboards fresh and catches broken HTML |
+| `gentech-hub/hub-audit` | keeps dashboards fresh, catches broken HTML |
 | `gentech/gentech-family-hub-management` | managing family hubs with strict data isolation |
 
-**Six added** from the shared library because they fit the same work:
+### ⚠️ The ones that will save you the most time
 
-| skill | why |
+**These exist because we lost work to each of them. Read these before you build anything that runs on
+a schedule, or hands off to another machine.**
+
+| skill | the pitfall it prevents |
 |---|---|
-| `film-production/seedance-video-production` | the current Seedance production procedure |
-| `creative/songwriting-and-ai-music` | craft + Suno prompting alongside the lyric formatter |
-| `creative/image-generation-workflow` | reliable image generation and editing |
-| `creative/brand-assets` | logos, banners, thumbnails for tracks and channels |
-| `media/voice-content-production` | voice audio across personas — useful for HIKARI/KAGE |
-| `creative/meme-generation` | real meme images from templates |
+| `agent-kit/hermes-memory-and-restart` | **memory freezes at session start** (an edit you make mid-session is not live until `/new`); the memory budget is hard and checked on the whole batch; **a running process owns its config keys and will overwrite your hand edit**; `HERMES_HOME` — not `HERMES_PROFILE` — selects the profile; and restarting mid-task without writing the plan down means the agent rebuilds the *summary*, not the *next step*. |
+| `agent-kit/fleet-self-reflection` | how to audit your own setup and find the faults no monitor catches — including the silent-failure class below. |
+| `agent-kit/use-what-we-have` | check what's already installed before building or claiming it's missing. |
+| `devops/safe-update-restart` | never blind-restart a running system. |
+| `development/develop-and-verify` | verify the thing you built actually does the thing, and treat a roadblock as a lead. |
+
+### The silent-failure rule, stated once
+
+**A plausible-looking config value that resolves to nothing does not throw. It does not log. The
+feature simply never works — and looks exactly like a feature nobody used.**
+
+We ran with `stt: provider: <invalid>` for weeks: every voice note on every agent failed silently.
+Same for image generation. Neither produced an error.
+
+**So:** validate provider names against the schema's own list, and **test credentials rather than
+reading them** — a commented-out key matches a naive search exactly like a live one.
 
 ---
 
-## ⚠️ Two things to confirm before this goes to a third party
+## What this repo deliberately does NOT contain
 
-**2 · The Girlfriend / family details are personal.** They're in `MEMORY.md` because they keep image
-work faithful. **If this package is going anywhere you don't fully control, strip that section.** The
-agent will still work.
+- **No credentials, keys, or tokens.** Nothing here authenticates to anything.
+- **No brain/vault.** A shared brain holds credentials and private notes; it never travels.
+- **No cron jobs and no agent peers.** A personal agent should start with an empty schedule — nothing
+  fires while nobody is watching.
 
----
+## A note on the memory files
 
-## ⚠️ Identity — settled 2026-11-01
-
-**Vanito is a separate person from Jordan.** Jordan's words: *"Me and Venito are not the same person.
-He's somebody that I added to the group as a collaborator… He was in the entertainment group most of
-the time, so most of everything he's done is in there."*
-
-**The vault profile note previously said they were the same person. That was wrong, it has been
-corrected, and nothing in this package should merge their identities, their work, or their folders.**
-
----
-
-## What this package deliberately does NOT contain
-
-- **No credentials, no keys, no tokens.** Nothing here authenticates to anything.
-- **No vault.** The GenTech brain holds credentials and private handoffs and never travels.
-- **No cron jobs, no agent peers.** A personal agent starts with an empty schedule on purpose —
-  nothing fires while you're not watching.
-
-## Provenance
-
-`manifest.json` records, for every skill, where it came from and its size, so a later audit can tell
-what was packaged and when.
+`memories/USER.md` and `memories/MEMORY.md` describe one person's world — characters, a catalog, family
+details used to keep image work faithful. **Edit them to be true.** They are a starting point written
+from what we knew, not a record that should be preserved unchanged.

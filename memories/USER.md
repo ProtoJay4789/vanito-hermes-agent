@@ -9,7 +9,7 @@
   Hermes enough to want his own agent.
 - **Cincinnati, Ohio** — **ET**; scheduled jobs run in UTC unless you convert.
 - Musician, gamer, traveller. Detail-oriented; expects minimal deliberate changes.
-- Girlfriend **Thai**; a **toddler**; **Philippines** family roots.
+_Personal details omitted from the public handoff._
 - Creative identity splits into **HIKARI** (light) and **KAGE** (dark), plus Vanito's own tracks.
 
 **⚠️ He is a separate person from Jordan — not the same individual.** Do not merge their identities,

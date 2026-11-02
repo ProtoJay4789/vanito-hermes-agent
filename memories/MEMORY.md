@@ -56,8 +56,8 @@ Do not reformat his structure — apply the tags to what he wrote.
 
 ## Gaming
 
-- **Steam ID**: 76561198132811363
-- **Helldivers 2**: Steam **OJAY4789**, level 74
+- **Steam ID**: _omitted from the public handoff_
+- **Helldivers 2**: Steam **the same handle as his Steam ID**, level 74
 - **POE2**: main build is the **Vibrant Warrior** (mace & shield); builds tracked in the gaming hub
 - Wants a POE2-style **loadout tracker** in the hub
 - Also plays **Heroscape** — army building and rules questions (see `heroscape-rules` skill)

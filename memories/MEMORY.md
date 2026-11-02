@@ -13,10 +13,8 @@ Carried from the GenTech vault profile, last consolidated 2026-08-07, packaged 2
 
 ## Personal
 
-- Girlfriend: **Thai** — keep her features faithful in any image work.
-- Has a **toddler**.
-- **Philippines connection** — family roots, not residence.
-- Music work is under the **HIKARI** / **KAGE** / **Vanito** names.
+_Left out of this public handoff on purpose. Add it yourself when you set up your own copy — image
+work that needs to keep a likeness faithful depends on it, and nothing else here does._
 
 ## Characters (continuity matters — read before generating)
 

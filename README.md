@@ -22,7 +22,7 @@ where we were a year ago.
 ## Install — fastest path
 
 ```bash
-git clone https://github.com/ProtoJay4789/vanito-hermes-agent.git
+git clone https://github.com/<owner>/vanito-hermes-agent.git
 cd vanito-hermes-agent
 
 mkdir -p ~/.hermes/memories
